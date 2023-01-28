@@ -5,7 +5,7 @@
 //  Created by Jeroen Bakker on 28/01/2023.
 //
 
-import Foundation
+import Domain
 
 final class SearchPhotosPresenter {
     
@@ -22,4 +22,15 @@ final class SearchPhotosPresenter {
 // MARK: - Responses
 extension SearchPhotosPresenter {
     
+    func present(isLoading: Bool) {
+        
+    }
+    
+    func present(error: Error) {
+        present(isLoading: false)
+    }
+    
+    func present(photos: [Photo]) {
+        present(isLoading: false)
+    }
 }
