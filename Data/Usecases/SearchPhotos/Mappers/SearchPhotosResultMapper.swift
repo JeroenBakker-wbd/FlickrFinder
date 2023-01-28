@@ -16,7 +16,7 @@ struct SearchPhotosResultMapper: EntityMapable {
         guard let entity = entity else { return nil }
         
         return SearchPhotosResult(
-            offset: entity.page ?? 0,
+            offset: entity.page ?? 1, // BE starts at 1
             limit: entity.perpage ?? 0,
             totalPhotos: entity.total ?? 0,
             photos: entity.photos?.compactMap({ photoMapper.map(entity: $0) }) ?? []

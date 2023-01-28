@@ -6,6 +6,7 @@
 //
 
 struct SearchPhotosResponseEntity: Decodable {
+    
     private enum CodingKeys: String, CodingKey {
         case page = "page"
         case pages = "pages"
@@ -19,4 +20,14 @@ struct SearchPhotosResponseEntity: Decodable {
     let perpage: Int?
     let total: Int?
     let photos: [PhotoEntity]?
+    
+    #if DEBUG
+    init(page: Int? = nil, pages: Int? = nil, perpage: Int? = nil, total: Int? = nil, photos: [PhotoEntity]? = nil) {
+        self.page = page
+        self.pages = pages
+        self.perpage = perpage
+        self.total = total
+        self.photos = photos
+    }
+    #endif
 }

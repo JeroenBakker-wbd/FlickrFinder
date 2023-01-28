@@ -8,7 +8,7 @@
 import Foundation
 
 struct PhotoEntity: Decodable {
-    
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case owner = "owner"
@@ -36,4 +36,21 @@ struct PhotoEntity: Decodable {
     let thumbnailURL: URL?
     let imageURL: URL?
     let originalImageURL: URL?
+    
+    #if DEBUG
+    init(id: String? = nil, owner: String? = nil, secret: String? = nil, server: String? = nil, farm: Int? = nil, title: String? = nil, isPublic: Int? = nil, isFriend: Int? = nil, isFamily: Int? = nil, thumbnailURL: URL? = nil, imageURL: URL? = nil, originalImageURL: URL? = nil) {
+        self.id = id
+        self.owner = owner
+        self.secret = secret
+        self.server = server
+        self.farm = farm
+        self.title = title
+        self.isPublic = isPublic
+        self.isFriend = isFriend
+        self.isFamily = isFamily
+        self.thumbnailURL = thumbnailURL
+        self.imageURL = imageURL
+        self.originalImageURL = originalImageURL
+    }
+    #endif
 }

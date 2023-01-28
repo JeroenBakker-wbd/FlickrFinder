@@ -8,6 +8,14 @@
 import Foundation
 
 struct FlickrSearchPhotosAPIResponseEntity: FlickrAPIResponseEntity {
+
     let stat: FlickrAPIResponseStat?
     let photos: SearchPhotosResponseEntity?
+    
+    #if DEBUG
+    init(stat: FlickrAPIResponseStat? = nil, photos: SearchPhotosResponseEntity? = nil) {
+        self.stat = stat
+        self.photos = photos
+    }
+    #endif
 }
