@@ -19,6 +19,10 @@ extension Container: AutoRegistering {
         public static let urlSession = Factory<URLSession>(scope: .singleton) { URLSession.shared }
     }
     
+    public enum Workers {
+        static let api = Factory<APIWorker> { APIService() }
+    }
+    
     enum Mappers {
         public static let searchPhotosResult = Factory<SearchPhotosResultMapper> { SearchPhotosResultMapper() }
         public static let photo = Factory<PhotoMapper> { PhotoMapper() }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FlickrSearchPhotosAPIResponseEntity: Decodable {
+struct FlickrSearchPhotosAPIResponseEntity: FlickrAPIResponseEntity {
     let stat: FlickrAPIResponseStat?
     let photos: SearchPhotosResponseEntity?
 }
