@@ -70,6 +70,11 @@
 		03090FBE2985751B00EEEE0E /* PhotoMapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FBD2985751B00EEEE0E /* PhotoMapperTest.swift */; };
 		03090FC129869F8A00EEEE0E /* SearchPhotosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FC029869F8A00EEEE0E /* SearchPhotosSection.swift */; };
 		03090FC329869FDD00EEEE0E /* SearchPhotosItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FC229869FDD00EEEE0E /* SearchPhotosItem.swift */; };
+		03090FC52986A4CA00EEEE0E /* SearchPhotosViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FC42986A4CA00EEEE0E /* SearchPhotosViewControllerViewModel.swift */; };
+		03090FC82986A7B400EEEE0E /* SearchPhotosLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FC72986A7B400EEEE0E /* SearchPhotosLoadingCell.swift */; };
+		03090FCA2986A7D400EEEE0E /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FC92986A7D400EEEE0E /* Updatable.swift */; };
+		03090FCE2986AE7B00EEEE0E /* SearchPhotosResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FCD2986AE7B00EEEE0E /* SearchPhotosResultCell.swift */; };
+		03090FD02986AF7800EEEE0E /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 03090FCF2986AF7800EEEE0E /* Nuke */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +220,10 @@
 		03090FBD2985751B00EEEE0E /* PhotoMapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMapperTest.swift; sourceTree = "<group>"; };
 		03090FC029869F8A00EEEE0E /* SearchPhotosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosSection.swift; sourceTree = "<group>"; };
 		03090FC229869FDD00EEEE0E /* SearchPhotosItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosItem.swift; sourceTree = "<group>"; };
+		03090FC42986A4CA00EEEE0E /* SearchPhotosViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosViewControllerViewModel.swift; sourceTree = "<group>"; };
+		03090FC72986A7B400EEEE0E /* SearchPhotosLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosLoadingCell.swift; sourceTree = "<group>"; };
+		03090FC92986A7D400EEEE0E /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
+		03090FCD2986AE7B00EEEE0E /* SearchPhotosResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosResultCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +243,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03090FD02986AF7800EEEE0E /* Nuke in Frameworks */,
 				03090F58298549A000EEEE0E /* Domain.framework in Frameworks */,
 				03090F6C29854DD400EEEE0E /* Factory in Frameworks */,
 			);
@@ -475,6 +485,7 @@
 		03090F42298543BE00EEEE0E /* SearchPhotos */ = {
 			isa = PBXGroup;
 			children = (
+				03090FC62986A7A900EEEE0E /* Cells */,
 				03090FBF29869F7F00EEEE0E /* Models */,
 				03090F44298543D000EEEE0E /* SearchPhotosInteractor.swift */,
 				03090F46298543D500EEEE0E /* SearchPhotosPresenter.swift */,
@@ -491,6 +502,7 @@
 				03090F4F2985468C00EEEE0E /* SyncSafe.swift */,
 				03090F972985656200EEEE0E /* Task+Helper.swift */,
 				03090F992985672900EEEE0E /* ThreadSafe.swift */,
+				03090FC92986A7D400EEEE0E /* Updatable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -666,8 +678,18 @@
 			children = (
 				03090FC029869F8A00EEEE0E /* SearchPhotosSection.swift */,
 				03090FC229869FDD00EEEE0E /* SearchPhotosItem.swift */,
+				03090FC42986A4CA00EEEE0E /* SearchPhotosViewControllerViewModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		03090FC62986A7A900EEEE0E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				03090FC72986A7B400EEEE0E /* SearchPhotosLoadingCell.swift */,
+				03090FCD2986AE7B00EEEE0E /* SearchPhotosResultCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -743,6 +765,7 @@
 			name = Presentation;
 			packageProductDependencies = (
 				03090F6B29854DD400EEEE0E /* Factory */,
+				03090FCF2986AF7800EEEE0E /* Nuke */,
 			);
 			productName = Presentation;
 			productReference = 03090EEC2985416000EEEE0E /* Presentation.framework */;
@@ -925,7 +948,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03090FC52986A4CA00EEEE0E /* SearchPhotosViewControllerViewModel.swift in Sources */,
 				03090FC129869F8A00EEEE0E /* SearchPhotosSection.swift in Sources */,
+				03090FCA2986A7D400EEEE0E /* Updatable.swift in Sources */,
 				03090F9A2985672900EEEE0E /* ThreadSafe.swift in Sources */,
 				03090F502985468C00EEEE0E /* SyncSafe.swift in Sources */,
 				03090F4D2985459800EEEE0E /* SearchPhotosViewController+Factory.swift in Sources */,
@@ -936,8 +961,10 @@
 				03090F49298543DA00EEEE0E /* SearchPhotosRouter.swift in Sources */,
 				03090F4B298543E000EEEE0E /* SearchPhotosViewController.swift in Sources */,
 				03090F40298542CF00EEEE0E /* SearchPhotosCoordinator.swift in Sources */,
+				03090FCE2986AE7B00EEEE0E /* SearchPhotosResultCell.swift in Sources */,
 				03090F3A2985424B00EEEE0E /* Coordinatorable.swift in Sources */,
 				03090FC329869FDD00EEEE0E /* SearchPhotosItem.swift in Sources */,
+				03090FC82986A7B400EEEE0E /* SearchPhotosLoadingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1559,6 +1586,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 03090F2E298541F600EEEE0E /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
+		};
+		03090FCF2986AF7800EEEE0E /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 03090F312985421500EEEE0E /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

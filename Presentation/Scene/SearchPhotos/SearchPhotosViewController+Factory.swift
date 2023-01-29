@@ -15,7 +15,7 @@ extension SearchPhotosViewController {
         
         self.init(interactor: interactor)
         
-        interactor.setup(with: presenter)
-        presenter.setup(with: self, router: router)
+        interactor.setup(with: presenter, router: router)
+        presenter.setup(with: self)
     }
 }

@@ -10,27 +10,44 @@ import Domain
 final class SearchPhotosPresenter {
     
     // MARK: private properties
-    private weak var displayLogic: SearchPhotosViewController?
-    private var router: SearchPhotosRouter?
+    private let loadingIdentifier: String = UUID().uuidString
+    private weak var displayLogic: SearchPhotosDisplayLogic?
     
-    func setup(with displayLogic: SearchPhotosViewController?, router: SearchPhotosRouter?) {
+    func setup(with displayLogic: SearchPhotosDisplayLogic?) {
         self.displayLogic = displayLogic
-        self.router = router
     }
 }
 
 // MARK: - Responses
 extension SearchPhotosPresenter {
     
+    func presentInitialize() {
+        displayLogic?.display(
+            viewModel: SearchPhotosViewController.ViewModel(
+                searchBarPlaceholder: "Search..."  // Would be nice to localize)
+            )
+        )
+    }
+    
     func present(isLoading: Bool) {
-        
+        displayLogic?.display(isLoading: isLoading, item: .loading(loadingIdentifier))
     }
     
     func present(error: Error) {
         present(isLoading: false)
+        
+        // TODO: Handle error, show a toast?
+        debugPrint(error.localizedDescription)
     }
     
-    func present(photos: [Photo]) {
+    func present(photos: [Photo], isNewResult: Bool) {
         present(isLoading: false)
+        displayLogic?.displayResult(items: photos.map({ photo in
+            return SearchPhotosItem.results(SearchPhotosResultCell.ViewModel(
+                id: photo.id,
+                title: photo.title,
+                imageUrl: photo.thumbnailURL
+            ))
+        }), isNewResult: isNewResult)
     }
 }

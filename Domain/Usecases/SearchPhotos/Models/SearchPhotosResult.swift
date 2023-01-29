@@ -18,5 +18,9 @@ public struct SearchPhotosResult {
     public let offset: Int
     public let limit: Int
     public let totalPhotos: Int
-    public let photos: [Photo]
+    public private(set) var photos: [Photo]
+    
+    public mutating func insert(photos: [Photo], at: Int) {
+        self.photos.insert(contentsOf: photos, at: at)
+    }
 }

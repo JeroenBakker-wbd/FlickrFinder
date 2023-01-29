@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Domain
 
 protocol SearchPhotosCoordinatorRouter: AnyObject {
     func searchPhotosDidComplete()
@@ -31,4 +32,9 @@ final class SearchPhotosCoordinator: Coordinatorable {
 // MARK: - SearchPhotosRouter
 extension SearchPhotosCoordinator: SearchPhotosRouter {
     
+    func searchPhotosDidTap(photo: Photo) {
+        syncSafe {
+            
+        }
+    }
 }

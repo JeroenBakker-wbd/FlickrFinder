@@ -8,7 +8,6 @@
 import Foundation
 
 enum SearchPhotosSection {
-    case skeletonLoading
     case results
-    case paginationLoading
+    case loading
 }

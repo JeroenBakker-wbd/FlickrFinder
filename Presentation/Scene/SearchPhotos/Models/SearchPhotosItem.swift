@@ -8,32 +8,28 @@
 import Foundation
 
 enum SearchPhotosItem {
-    case skeletonLoading(id: String)
-    case results(id: String)
-    case paginationLoading(id: String)
+    case results(SearchPhotosResultCell.ViewModel)
+    case loading(SearchPhotosLoadingCell.ViewModel)
     
     var reuseIdentifier: String {
         switch self {
-        case .skeletonLoading:
-            return ""
         case .results:
-            return ""
-        case .paginationLoading:
-            return ""
+            return SearchPhotosResultCell.reuseIdentifier
+        case .loading:
+            return SearchPhotosLoadingCell.reuseIdentifier
         }
     }
 }
 
+// MARK: - Hashable
 extension SearchPhotosItem: Hashable {
     
     func hash(into hasher: inout Hasher) {
         switch self {
-        case .skeletonLoading(let id):
-            hasher.combine(id)
-        case .results(let id):
-            hasher.combine(id)
-        case .paginationLoading(let id):
-            hasher.combine(id)
+        case .results(let viewModel):
+            hasher.combine(viewModel.uniqueId)
+        case .loading(let viewModel):
+            hasher.combine(viewModel)
         }
     }
 }
