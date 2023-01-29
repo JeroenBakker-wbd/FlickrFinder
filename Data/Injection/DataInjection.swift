@@ -16,7 +16,7 @@ extension Container: AutoRegistering {
     }
     
     enum Singletons {
-        public static let urlSession = Factory<URLSession>(scope: .singleton) { URLSession.shared }
+        public static let urlSession = Factory<URLSessionable>(scope: .singleton) { URLSession.shared }
     }
     
     public enum Workers {

@@ -82,6 +82,9 @@
 		03090FDB2986BAB200EEEE0E /* PhotoDetailViewController+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FDA2986BAB200EEEE0E /* PhotoDetailViewController+Factory.swift */; };
 		03090FDE2986BC0E00EEEE0E /* PhotoDetailViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FDD2986BC0E00EEEE0E /* PhotoDetailViewControllerViewModel.swift */; };
 		03090FE02986BE8700EEEE0E /* SearchPhotosTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FDF2986BE8700EEEE0E /* SearchPhotosTitleCell.swift */; };
+		03090FE22986C11B00EEEE0E /* APIServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FE12986C11B00EEEE0E /* APIServiceTest.swift */; };
+		03090FE82986C42500EEEE0E /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FE72986C42500EEEE0E /* URLSessionMock.swift */; };
+		03090FEA2986C6DC00EEEE0E /* URLSessionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FE92986C6DC00EEEE0E /* URLSessionable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -238,6 +241,9 @@
 		03090FDA2986BAB200EEEE0E /* PhotoDetailViewController+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoDetailViewController+Factory.swift"; sourceTree = "<group>"; };
 		03090FDD2986BC0E00EEEE0E /* PhotoDetailViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewControllerViewModel.swift; sourceTree = "<group>"; };
 		03090FDF2986BE8700EEEE0E /* SearchPhotosTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosTitleCell.swift; sourceTree = "<group>"; };
+		03090FE12986C11B00EEEE0E /* APIServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTest.swift; sourceTree = "<group>"; };
+		03090FE72986C42500EEEE0E /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		03090FE92986C6DC00EEEE0E /* URLSessionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -635,6 +641,7 @@
 				03090F7D298555E900EEEE0E /* Models */,
 				03090F9C298568AD00EEEE0E /* APIService.swift */,
 				03090FA02985699400EEEE0E /* APIWorker.swift */,
+				03090FE92986C6DC00EEEE0E /* URLSessionable.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -667,6 +674,7 @@
 		03090FAB29856BBC00EEEE0E /* API */ = {
 			isa = PBXGroup;
 			children = (
+				03090FE12986C11B00EEEE0E /* APIServiceTest.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -675,6 +683,7 @@
 			isa = PBXGroup;
 			children = (
 				03090FAD29856BCD00EEEE0E /* APIWorkerMock.swift */,
+				03090FE72986C42500EEEE0E /* URLSessionMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1033,6 +1042,7 @@
 				03090F9229855D2400EEEE0E /* EntityMapable.swift in Sources */,
 				03090F53298548CB00EEEE0E /* SearchPhotosService.swift in Sources */,
 				03090F9629855DE700EEEE0E /* PhotoMapper.swift in Sources */,
+				03090FEA2986C6DC00EEEE0E /* URLSessionable.swift in Sources */,
 				03090F7C298555DC00EEEE0E /* FlickrSearchPhotoError.swift in Sources */,
 				03090FA629856AD000EEEE0E /* APIMethod.swift in Sources */,
 				03090F872985588B00EEEE0E /* PhotoEntity.swift in Sources */,
@@ -1052,8 +1062,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03090FE82986C42500EEEE0E /* URLSessionMock.swift in Sources */,
 				03090FBC298573A800EEEE0E /* SearchPhotosResultMapperTest.swift in Sources */,
 				03090FAE29856BCD00EEEE0E /* APIWorkerMock.swift in Sources */,
+				03090FE22986C11B00EEEE0E /* APIServiceTest.swift in Sources */,
 				03090FA929856B9800EEEE0E /* SearchPhotosServiceTest.swift in Sources */,
 				03090FBE2985751B00EEEE0E /* PhotoMapperTest.swift in Sources */,
 			);

@@ -5,7 +5,7 @@
 //  Created by Jeroen Bakker on 28/01/2023.
 //
 
-struct SearchPhotosResponseEntity: Decodable {
+struct SearchPhotosResponseEntity: Codable {
     
     private enum CodingKeys: String, CodingKey {
         case page = "page"

@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol FlickrAPIResponseEntity: Decodable {
+protocol FlickrAPIResponseEntity: Codable {
     var stat: FlickrAPIResponseStat? { get }
 }

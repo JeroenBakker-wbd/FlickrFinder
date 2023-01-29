@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PhotoEntity: Decodable {
+struct PhotoEntity: Codable {
 
     private enum CodingKeys: String, CodingKey {
         case id = "id"

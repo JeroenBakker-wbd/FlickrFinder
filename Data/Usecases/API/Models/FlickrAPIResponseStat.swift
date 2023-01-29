@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FlickrAPIResponseStat: String, Decodable {
+enum FlickrAPIResponseStat: String, Codable {
     case ok
     case fail
 }
