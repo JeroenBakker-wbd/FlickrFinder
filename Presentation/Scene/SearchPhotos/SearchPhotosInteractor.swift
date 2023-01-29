@@ -10,6 +10,8 @@ import Factory
 
 enum SearchPhotosRequest {
     case viewDidLoad
+    case searchBarTextDidChange(text: String)
+    case didTapItem(id: String)
 }
 
 final class SearchPhotosInteractor {
@@ -36,7 +38,11 @@ extension SearchPhotosInteractor {
     func handle(request: SearchPhotosRequest) {
         switch request {
         case .viewDidLoad:
-            performSearch(with: "test")
+            break
+        case .searchBarTextDidChange(let text):
+            performSearch(with: text)
+        case .didTapItem(let id):
+            debugPrint(id)
         }
     }
 }
@@ -48,7 +54,7 @@ private extension SearchPhotosInteractor {
         currentSearchTask?.cancel()
         currentSearchTask = Task { [weak self] in
             do {
-                try await Task.sleep(seconds: 0.25)
+                try await Task.sleep(seconds: 0.3)
                 presenter?.present(isLoading: true)
                 
                 let currentResult = self?.currentResult

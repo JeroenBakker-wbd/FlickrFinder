@@ -23,7 +23,6 @@
 		03090F212985417F00EEEE0E /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03090F0D2985417E00EEEE0E /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03090F30298541F600EEEE0E /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 03090F2F298541F600EEEE0E /* Factory */; };
 		03090F332985421500EEEE0E /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 03090F322985421500EEEE0E /* Nuke */; };
-		03090F362985422100EEEE0E /* EasyPeasy in Frameworks */ = {isa = PBXBuildFile; productRef = 03090F352985422100EEEE0E /* EasyPeasy */; };
 		03090F3A2985424B00EEEE0E /* Coordinatorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090F392985424B00EEEE0E /* Coordinatorable.swift */; };
 		03090F3D2985426300EEEE0E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090F3C2985426300EEEE0E /* AppCoordinator.swift */; };
 		03090F40298542CF00EEEE0E /* SearchPhotosCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090F3F298542CF00EEEE0E /* SearchPhotosCoordinator.swift */; };
@@ -69,6 +68,8 @@
 		03090FB7298572B600EEEE0E /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 03090FB6298572B600EEEE0E /* Factory */; };
 		03090FBC298573A800EEEE0E /* SearchPhotosResultMapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FBB298573A800EEEE0E /* SearchPhotosResultMapperTest.swift */; };
 		03090FBE2985751B00EEEE0E /* PhotoMapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FBD2985751B00EEEE0E /* PhotoMapperTest.swift */; };
+		03090FC129869F8A00EEEE0E /* SearchPhotosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FC029869F8A00EEEE0E /* SearchPhotosSection.swift */; };
+		03090FC329869FDD00EEEE0E /* SearchPhotosItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FC229869FDD00EEEE0E /* SearchPhotosItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +213,8 @@
 		03090FAD29856BCD00EEEE0E /* APIWorkerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIWorkerMock.swift; sourceTree = "<group>"; };
 		03090FBB298573A800EEEE0E /* SearchPhotosResultMapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosResultMapperTest.swift; sourceTree = "<group>"; };
 		03090FBD2985751B00EEEE0E /* PhotoMapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMapperTest.swift; sourceTree = "<group>"; };
+		03090FC029869F8A00EEEE0E /* SearchPhotosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosSection.swift; sourceTree = "<group>"; };
+		03090FC229869FDD00EEEE0E /* SearchPhotosItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,7 +225,6 @@
 				03090F202985417F00EEEE0E /* Data.framework in Frameworks */,
 				03090F032985417800EEEE0E /* Domain.framework in Frameworks */,
 				03090EF22985416000EEEE0E /* Presentation.framework in Frameworks */,
-				03090F362985422100EEEE0E /* EasyPeasy in Frameworks */,
 				03090F30298541F600EEEE0E /* Factory in Frameworks */,
 				03090F332985421500EEEE0E /* Nuke in Frameworks */,
 			);
@@ -473,6 +475,7 @@
 		03090F42298543BE00EEEE0E /* SearchPhotos */ = {
 			isa = PBXGroup;
 			children = (
+				03090FBF29869F7F00EEEE0E /* Models */,
 				03090F44298543D000EEEE0E /* SearchPhotosInteractor.swift */,
 				03090F46298543D500EEEE0E /* SearchPhotosPresenter.swift */,
 				03090F48298543DA00EEEE0E /* SearchPhotosRouter.swift */,
@@ -658,6 +661,15 @@
 			path = Mappers;
 			sourceTree = "<group>";
 		};
+		03090FBF29869F7F00EEEE0E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				03090FC029869F8A00EEEE0E /* SearchPhotosSection.swift */,
+				03090FC229869FDD00EEEE0E /* SearchPhotosItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -708,7 +720,6 @@
 			packageProductDependencies = (
 				03090F2F298541F600EEEE0E /* Factory */,
 				03090F322985421500EEEE0E /* Nuke */,
-				03090F352985422100EEEE0E /* EasyPeasy */,
 			);
 			productName = FlickrFinder;
 			productReference = 03090EAF2985408C00EEEE0E /* FlickrFinder.app */;
@@ -846,7 +857,6 @@
 			packageReferences = (
 				03090F2E298541F600EEEE0E /* XCRemoteSwiftPackageReference "Factory" */,
 				03090F312985421500EEEE0E /* XCRemoteSwiftPackageReference "Nuke" */,
-				03090F342985422100EEEE0E /* XCRemoteSwiftPackageReference "EasyPeasy" */,
 			);
 			productRefGroup = 03090EB02985408C00EEEE0E /* Products */;
 			projectDirPath = "";
@@ -915,6 +925,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03090FC129869F8A00EEEE0E /* SearchPhotosSection.swift in Sources */,
 				03090F9A2985672900EEEE0E /* ThreadSafe.swift in Sources */,
 				03090F502985468C00EEEE0E /* SyncSafe.swift in Sources */,
 				03090F4D2985459800EEEE0E /* SearchPhotosViewController+Factory.swift in Sources */,
@@ -926,6 +937,7 @@
 				03090F4B298543E000EEEE0E /* SearchPhotosViewController.swift in Sources */,
 				03090F40298542CF00EEEE0E /* SearchPhotosCoordinator.swift in Sources */,
 				03090F3A2985424B00EEEE0E /* Coordinatorable.swift in Sources */,
+				03090FC329869FDD00EEEE0E /* SearchPhotosItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1515,14 +1527,6 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		03090F342985422100EEEE0E /* XCRemoteSwiftPackageReference "EasyPeasy" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nakiostudio/EasyPeasy";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1535,11 +1539,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 03090F312985421500EEEE0E /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
-		};
-		03090F352985422100EEEE0E /* EasyPeasy */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 03090F342985422100EEEE0E /* XCRemoteSwiftPackageReference "EasyPeasy" */;
-			productName = EasyPeasy;
 		};
 		03090F6929854DC600EEEE0E /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
