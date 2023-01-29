@@ -24,7 +24,7 @@ extension SearchPhotosPresenter {
     func presentInitialize() {
         displayLogic?.display(
             viewModel: SearchPhotosViewController.ViewModel(
-                searchBarPlaceholder: "Search..."  // Would be nice to localize)
+                searchBarPlaceholder: "Search..."
             )
         )
     }
@@ -36,8 +36,9 @@ extension SearchPhotosPresenter {
     func present(error: Error) {
         present(isLoading: false)
         
-        // TODO: Handle error, show a toast?
-        debugPrint(error.localizedDescription)
+        displayLogic?.displayResult(items: [
+            SearchPhotosItem.empty(SearchPhotosTitleCell.ViewModel(title: "Something went wrong, please try again"))
+        ], isNewResult: true)
     }
     
     func present(photos: [Photo], isNewResult: Bool) {
