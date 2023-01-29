@@ -52,7 +52,7 @@ extension SearchPhotosPresenter {
             displayLogic?.displayResult(items: photos.map({ photo in
                 return SearchPhotosItem.results(SearchPhotosResultCell.ViewModel(
                     id: photo.id,
-                    title: photo.title,
+                    title: photo.title.isEmpty ? "unknown title": photo.title,
                     imageUrl: photo.thumbnailURL
                 ))
             }), isNewResult: isNewResult)
