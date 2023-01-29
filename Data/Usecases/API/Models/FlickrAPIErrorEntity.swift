@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FlickrAPIErrorEntity: Decodable {
+struct FlickrAPIErrorEntity: Decodable, Error {
     let code: Int?
     let message: String?
 }

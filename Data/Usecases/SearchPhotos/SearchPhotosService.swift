@@ -44,12 +44,17 @@ struct SearchPhotosService: SearchPhotosWorker {
         var request = URLRequest(url: requestURL)
         request.httpMethod = APIMethod.get.rawValue
         
-        let responseEntity: FlickrSearchPhotosAPIResponseEntity = try await apiWorker.sendRequest(for: request)
-        
-        guard let result = searchPhotosResultMapper.map(entity: responseEntity.photos) else {
-            throw NetworkError.couldNotMap
+        do {
+            let responseEntity: FlickrSearchPhotosAPIResponseEntity = try await apiWorker.sendRequest(for: request)
+            guard let result = searchPhotosResultMapper.map(entity: responseEntity.photos) else {
+                throw NetworkError.couldNotMap
+            }
+            
+            return result
+        } catch let error as FlickrAPIErrorEntity {
+            throw FlickrSearchPhotoError(rawValue: error.code ?? 0)
+        } catch let error {
+            throw error
         }
-        
-        return result
     }
 }

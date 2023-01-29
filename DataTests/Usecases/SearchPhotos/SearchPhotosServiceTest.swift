@@ -64,4 +64,55 @@ extension SearchPhotosServiceTest {
         // then
         XCTAssertEqual(1, apiWorkerMock.invokedSendRequestCount)
     }
+    
+    func test_invoke_onFlickrAPIErrorEntity_shouldThrowSearchPhotoError() async throws {
+        // given
+        apiWorkerMock.mockedError = FlickrAPIErrorEntity(code: 1, message: "Something went wrong")
+        
+        // when
+        do {
+            _ = try await sut.invoke(with: "input", offset: 1, limit: 25)
+        } catch FlickrSearchPhotoError.tooManyTags {
+            // Success
+        } catch {
+            XCTFail("Expected FlickrSearchPhotoError tooManyTags")
+        }
+        
+        // then
+        XCTAssertEqual(1, apiWorkerMock.invokedSendRequestCount)
+    }
+    
+    func test_invoke_onFlickrAPIErrorEntityCodeNil_shouldThrowUnknownAPIError() async throws {
+        // given
+        apiWorkerMock.mockedError = FlickrAPIErrorEntity(code: nil, message: "Something went wrong")
+        
+        // when
+        do {
+            _ = try await sut.invoke(with: "input", offset: 1, limit: 25)
+        } catch FlickrSearchPhotoError.api(.unknown) {
+            // Success
+        } catch {
+            XCTFail("Expected FlickrSearchPhotoError tooManyTags")
+        }
+        
+        // then
+        XCTAssertEqual(1, apiWorkerMock.invokedSendRequestCount)
+    }
+    
+    func test_invoke_onError_shouldThrowError() async throws {
+        // given
+        apiWorkerMock.mockedError = NetworkError.forbidden
+        
+        // when
+        do {
+            _ = try await sut.invoke(with: "input", offset: 1, limit: 25)
+        } catch NetworkError.forbidden {
+            // Success
+        } catch {
+            XCTFail("Expected FlickrSearchPhotoError tooManyTags")
+        }
+        
+        // then
+        XCTAssertEqual(1, apiWorkerMock.invokedSendRequestCount)
+    }
 }

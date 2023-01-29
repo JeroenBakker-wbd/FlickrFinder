@@ -31,7 +31,7 @@ struct APIService: APIWorker {
                 return responseEntity
             case .fail, .none:
                 let errorEntity = try jsonDecoder.decode(FlickrAPIErrorEntity.self, from: data)
-                throw FlickrSearchPhotoError(rawValue: errorEntity.code ?? 0)
+                throw errorEntity
             }
         case 401:
             throw NetworkError.unauthorized
