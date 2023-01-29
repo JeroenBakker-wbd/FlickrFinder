@@ -32,12 +32,6 @@ final class SearchPhotosResultCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented, we do not want storyboards")
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        update(with: nil)
-    }
 }
 
 // MARK: - Updatable
@@ -70,7 +64,7 @@ private extension SearchPhotosResultCell {
             titleLabel.topAnchor.constraint(lessThanOrEqualTo: contentView.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 25),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor)
         ])
     }
@@ -102,7 +96,7 @@ private extension SearchPhotosResultCell {
 extension SearchPhotosResultCell {
     
     struct ViewModel: Equatable {
-        let uniqueId: String = UUID().uuidString
+        private(set) var uniqueId: String = UUID().uuidString
         let id: String
         let title: String
         let imageUrl: URL

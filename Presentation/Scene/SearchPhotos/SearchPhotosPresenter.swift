@@ -42,12 +42,23 @@ extension SearchPhotosPresenter {
     
     func present(photos: [Photo], isNewResult: Bool) {
         present(isLoading: false)
-        displayLogic?.displayResult(items: photos.map({ photo in
-            return SearchPhotosItem.results(SearchPhotosResultCell.ViewModel(
-                id: photo.id,
-                title: photo.title,
-                imageUrl: photo.thumbnailURL
-            ))
-        }), isNewResult: isNewResult)
+        
+        if photos.isEmpty {
+            displayLogic?.displayResult(items: [
+                SearchPhotosItem.empty(SearchPhotosTitleCell.ViewModel(title: "No results found"))
+            ], isNewResult: isNewResult)
+        } else {
+            displayLogic?.displayResult(items: photos.map({ photo in
+                return SearchPhotosItem.results(SearchPhotosResultCell.ViewModel(
+                    id: photo.id,
+                    title: photo.title,
+                    imageUrl: photo.thumbnailURL
+                ))
+            }), isNewResult: isNewResult)
+        }
+    }
+    
+    func presentClearResults() {
+        displayLogic?.displayClearResults()
     }
 }

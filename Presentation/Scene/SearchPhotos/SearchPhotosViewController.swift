@@ -9,6 +9,7 @@ import UIKit
 
 protocol SearchPhotosDisplayLogic: AnyObject {
     func display(viewModel: SearchPhotosViewController.ViewModel)
+    func displayClearResults()
     func displayResult(items: [SearchPhotosItem], isNewResult: Bool)
     func display(isLoading: Bool, item: SearchPhotosItem)
 }
@@ -63,14 +64,24 @@ extension SearchPhotosViewController: SearchPhotosDisplayLogic {
         }
     }
     
+    func displayClearResults() {
+        syncSafe {
+            var snapshot = dataSource.snapshot()
+            snapshot.deleteAllItems()
+            dataSource.apply(snapshot, animatingDifferences: true)
+        }
+    }
+    
     func display(isLoading: Bool, item: SearchPhotosItem) {
         syncSafe {
             var snapshot = dataSource.snapshot()
             if isLoading {
-                snapshot.appendSections([.loading])
-                snapshot.appendItems([item], toSection: .loading)
+                if snapshot.numberOfSections == 0 {
+                    snapshot.appendSections([.results])
+                }
+                snapshot.appendItems([item], toSection: .results)
             } else {
-                snapshot.deleteSections([.loading])
+                snapshot.deleteItems([item])
             }
             dataSource.apply(snapshot, animatingDifferences: true)
         }
@@ -81,13 +92,7 @@ extension SearchPhotosViewController: SearchPhotosDisplayLogic {
 extension SearchPhotosViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            var snapshot = dataSource.snapshot()
-            snapshot.deleteAllItems()
-            dataSource.apply(snapshot, animatingDifferences: true)
-        } else {
-            interactor.handle(request: .searchBarTextDidChange(text: searchText))
-        }
+        interactor.handle(request: .searchBarTextDidChange(text: searchText))
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -112,7 +117,7 @@ extension SearchPhotosViewController: UICollectionViewDelegate {
         }
         
         switch item {
-        case .loading:
+        case .loading, .empty:
             break // we don't want to do anything
         case .results(let viewModel):
             interactor.handle(request: .didTapItem(id: viewModel.id))
@@ -144,10 +149,12 @@ private extension SearchPhotosViewController {
         
         view.addSubview(collectionView)
         
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
         
         view.addGestureRecognizer(makeTapGesture())
     }
@@ -173,6 +180,7 @@ private extension SearchPhotosViewController {
         collectionView.delegate = self
         collectionView.register(SearchPhotosLoadingCell.self, forCellWithReuseIdentifier: SearchPhotosLoadingCell.reuseIdentifier)
         collectionView.register(SearchPhotosResultCell.self, forCellWithReuseIdentifier: SearchPhotosResultCell.reuseIdentifier)
+        collectionView.register(SearchPhotosTitleCell.self, forCellWithReuseIdentifier: SearchPhotosTitleCell.reuseIdentifier)
         return collectionView
     }
     
@@ -210,6 +218,12 @@ private extension SearchPhotosViewController {
             case .results(let viewModel):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: item.reuseIdentifier, for: indexPath) as? SearchPhotosResultCell else {
                     fatalError("Forgot to register SearchPhotosResultCell")
+                }
+                cell.update(with: viewModel)
+                return cell
+            case .empty(let viewModel):
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: item.reuseIdentifier, for: indexPath) as? SearchPhotosTitleCell else {
+                    fatalError("Forgot to register SearchPhotosTitleCell")
                 }
                 cell.update(with: viewModel)
                 return cell

@@ -27,7 +27,7 @@ final class SearchPhotosInteractor {
     private var currentSearchTask: Task<Void, Never>?
     
     private var presenter: SearchPhotosPresenter?
-    private weak var router: SearchPhotosRouter?
+    private var router: SearchPhotosRouter?
     
     // MARK: Lifecycle
     init() { }
@@ -68,7 +68,12 @@ extension SearchPhotosInteractor {
 private extension SearchPhotosInteractor {
     
     func performSearch(with searchTerm: String, isNextBatch: Bool) {
-        guard !searchTerm.isEmpty else { return }
+        guard !searchTerm.isEmpty else {
+            didReachEnd = true
+            isPerformingNextBatch = false
+            presenter?.presentClearResults()
+            return
+        }
         
         didReachEnd = false
         currentSearchTerm = searchTerm

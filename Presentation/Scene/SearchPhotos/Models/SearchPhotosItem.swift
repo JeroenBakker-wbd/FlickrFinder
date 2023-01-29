@@ -10,6 +10,7 @@ import Foundation
 enum SearchPhotosItem {
     case results(SearchPhotosResultCell.ViewModel)
     case loading(SearchPhotosLoadingCell.ViewModel)
+    case empty(SearchPhotosTitleCell.ViewModel)
     
     var reuseIdentifier: String {
         switch self {
@@ -17,6 +18,8 @@ enum SearchPhotosItem {
             return SearchPhotosResultCell.reuseIdentifier
         case .loading:
             return SearchPhotosLoadingCell.reuseIdentifier
+        case .empty:
+            return SearchPhotosTitleCell.reuseIdentifier
         }
     }
 }
@@ -30,6 +33,8 @@ extension SearchPhotosItem: Hashable {
             hasher.combine(viewModel.uniqueId)
         case .loading(let viewModel):
             hasher.combine(viewModel)
+        case .empty(let viewModel):
+            hasher.combine(viewModel.uniqueId)
         }
     }
 }
