@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FlickrSearchPhotoError: Error {
+enum FlickrSearchPhotoError: Error, Equatable {
     case api(FlickrAPIError)
     case tooManyTags
     case unknownUser
