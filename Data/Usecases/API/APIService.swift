@@ -43,4 +43,8 @@ struct APIService: APIWorker {
             throw NetworkError.statusCode(httpUrlResponse.statusCode)
         }
     }
+
+    func anEmptyTestWhichShouldBeReportedAsACodeSmell() {
+        
+    }
 }
