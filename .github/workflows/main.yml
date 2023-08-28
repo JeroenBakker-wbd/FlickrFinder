@@ -1,0 +1,42 @@
+name: Sonar
+env:
+  DEVELOPER_DIR: /Applications/Xcode_14.3.1.app/Contents/Developer
+'on':
+  pull_request_target:
+    branches:
+      - "**"
+    types: [opened, synchronize, reopened, labeled]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '14.3.1'
+      - name: Install Dependencies
+        run: >
+          wget
+          https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-macosx.zip
+          && unzip sonar-scanner-cli-5.0.1.3006-macosx.zip && wget
+          https://sonarcloud.io/static/cpp/build-wrapper-macosx-x86.zip && unzip
+          build-wrapper-macosx-x86.zip
+      - name: Run tests
+        run: >
+          set -o pipefail && xcodebuild -project
+          FlickrFinder.xcodeproj -scheme FlickrFinder
+          -sdk 'iphonesimulator16.4'
+          -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4'
+          -derivedDataPath Build/ -enableCodeCoverage YES clean build test
+          CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" ONLY_ACTIVE_ARCH=NO |
+          xcpretty
+
+          bash xccov-to-sonarqube-generic.sh Build/Logs/Test/*.xcresult/ >
+          coverage.xml
+      - name: Sonar
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          SONAR_TOKEN: '${{ secrets.SONAR_TOKEN }}'
+        run: >
+           sonar-scanner-5.0.1.3006-macosx/bin/sonar-scanner
