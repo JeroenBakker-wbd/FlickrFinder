@@ -34,13 +34,7 @@ extension SearchPhotosCoordinator: SearchPhotosRouter {
     
     func searchPhotosDidTap(photo: Photo) {
         syncSafe {
-            let photoDetailVC = PhotoDetailViewController(with: self, photo: photo)
-            navigationController.pushViewController(photoDetailVC, animated: true)
+            // empty
         }
     }
-}
-
-// MARK: - PhotoDetailRouter
-extension SearchPhotosCoordinator: PhotoDetailRouter {
-    
 }
