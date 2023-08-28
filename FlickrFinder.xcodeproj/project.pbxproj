@@ -75,12 +75,6 @@
 		03090FCA2986A7D400EEEE0E /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FC92986A7D400EEEE0E /* Updatable.swift */; };
 		03090FCE2986AE7B00EEEE0E /* SearchPhotosResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FCD2986AE7B00EEEE0E /* SearchPhotosResultCell.swift */; };
 		03090FD02986AF7800EEEE0E /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 03090FCF2986AF7800EEEE0E /* Nuke */; };
-		03090FD32986BA4500EEEE0E /* PhotoDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FD22986BA4500EEEE0E /* PhotoDetailInteractor.swift */; };
-		03090FD52986BAA200EEEE0E /* PhotoDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FD42986BAA200EEEE0E /* PhotoDetailPresenter.swift */; };
-		03090FD72986BAA600EEEE0E /* PhotoDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FD62986BAA600EEEE0E /* PhotoDetailRouter.swift */; };
-		03090FD92986BAAB00EEEE0E /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FD82986BAAB00EEEE0E /* PhotoDetailViewController.swift */; };
-		03090FDB2986BAB200EEEE0E /* PhotoDetailViewController+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FDA2986BAB200EEEE0E /* PhotoDetailViewController+Factory.swift */; };
-		03090FDE2986BC0E00EEEE0E /* PhotoDetailViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FDD2986BC0E00EEEE0E /* PhotoDetailViewControllerViewModel.swift */; };
 		03090FE02986BE8700EEEE0E /* SearchPhotosTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FDF2986BE8700EEEE0E /* SearchPhotosTitleCell.swift */; };
 		03090FE22986C11B00EEEE0E /* APIServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FE12986C11B00EEEE0E /* APIServiceTest.swift */; };
 		03090FE82986C42500EEEE0E /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03090FE72986C42500EEEE0E /* URLSessionMock.swift */; };
@@ -234,12 +228,6 @@
 		03090FC72986A7B400EEEE0E /* SearchPhotosLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosLoadingCell.swift; sourceTree = "<group>"; };
 		03090FC92986A7D400EEEE0E /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		03090FCD2986AE7B00EEEE0E /* SearchPhotosResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosResultCell.swift; sourceTree = "<group>"; };
-		03090FD22986BA4500EEEE0E /* PhotoDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailInteractor.swift; sourceTree = "<group>"; };
-		03090FD42986BAA200EEEE0E /* PhotoDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailPresenter.swift; sourceTree = "<group>"; };
-		03090FD62986BAA600EEEE0E /* PhotoDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailRouter.swift; sourceTree = "<group>"; };
-		03090FD82986BAAB00EEEE0E /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
-		03090FDA2986BAB200EEEE0E /* PhotoDetailViewController+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoDetailViewController+Factory.swift"; sourceTree = "<group>"; };
-		03090FDD2986BC0E00EEEE0E /* PhotoDetailViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewControllerViewModel.swift; sourceTree = "<group>"; };
 		03090FDF2986BE8700EEEE0E /* SearchPhotosTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosTitleCell.swift; sourceTree = "<group>"; };
 		03090FE12986C11B00EEEE0E /* APIServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTest.swift; sourceTree = "<group>"; };
 		03090FE72986C42500EEEE0E /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
@@ -497,7 +485,6 @@
 		03090F41298543B400EEEE0E /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				03090FD12986BA3000EEEE0E /* PhotoDetail */,
 				03090F42298543BE00EEEE0E /* SearchPhotos */,
 			);
 			path = Scene;
@@ -715,27 +702,6 @@
 				03090FDF2986BE8700EEEE0E /* SearchPhotosTitleCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		03090FD12986BA3000EEEE0E /* PhotoDetail */ = {
-			isa = PBXGroup;
-			children = (
-				03090FDC2986BC0100EEEE0E /* Models */,
-				03090FD22986BA4500EEEE0E /* PhotoDetailInteractor.swift */,
-				03090FD42986BAA200EEEE0E /* PhotoDetailPresenter.swift */,
-				03090FD62986BAA600EEEE0E /* PhotoDetailRouter.swift */,
-				03090FD82986BAAB00EEEE0E /* PhotoDetailViewController.swift */,
-				03090FDA2986BAB200EEEE0E /* PhotoDetailViewController+Factory.swift */,
-			);
-			path = PhotoDetail;
-			sourceTree = "<group>";
-		};
-		03090FDC2986BC0100EEEE0E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				03090FDD2986BC0E00EEEE0E /* PhotoDetailViewControllerViewModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -997,21 +963,15 @@
 				03090FC52986A4CA00EEEE0E /* SearchPhotosViewControllerViewModel.swift in Sources */,
 				03090FC129869F8A00EEEE0E /* SearchPhotosSection.swift in Sources */,
 				03090FCA2986A7D400EEEE0E /* Updatable.swift in Sources */,
-				03090FD92986BAAB00EEEE0E /* PhotoDetailViewController.swift in Sources */,
 				03090F9A2985672900EEEE0E /* ThreadSafe.swift in Sources */,
-				03090FDB2986BAB200EEEE0E /* PhotoDetailViewController+Factory.swift in Sources */,
-				03090FD72986BAA600EEEE0E /* PhotoDetailRouter.swift in Sources */,
 				03090F502985468C00EEEE0E /* SyncSafe.swift in Sources */,
 				03090F4D2985459800EEEE0E /* SearchPhotosViewController+Factory.swift in Sources */,
-				03090FDE2986BC0E00EEEE0E /* PhotoDetailViewControllerViewModel.swift in Sources */,
 				03090F47298543D500EEEE0E /* SearchPhotosPresenter.swift in Sources */,
 				03090F3D2985426300EEEE0E /* AppCoordinator.swift in Sources */,
 				03090F982985656200EEEE0E /* Task+Helper.swift in Sources */,
 				03090F45298543D000EEEE0E /* SearchPhotosInteractor.swift in Sources */,
 				03090F49298543DA00EEEE0E /* SearchPhotosRouter.swift in Sources */,
-				03090FD52986BAA200EEEE0E /* PhotoDetailPresenter.swift in Sources */,
 				03090F4B298543E000EEEE0E /* SearchPhotosViewController.swift in Sources */,
-				03090FD32986BA4500EEEE0E /* PhotoDetailInteractor.swift in Sources */,
 				03090F40298542CF00EEEE0E /* SearchPhotosCoordinator.swift in Sources */,
 				03090FE02986BE8700EEEE0E /* SearchPhotosTitleCell.swift in Sources */,
 				03090FCE2986AE7B00EEEE0E /* SearchPhotosResultCell.swift in Sources */,
