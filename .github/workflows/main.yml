@@ -1,15 +1,17 @@
 name: Sonar
 env:
-  DEVELOPER_DIR: /Applications/Xcode_14.2.0.app/Contents/Developer
+  DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
 'on':
   pull_request_target:
     branches:
       - "**"
     types: [opened, synchronize, reopened, labeled]
+  schedule:
+    - cron: 0 16 * * *
   workflow_dispatch:
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-12
     steps:
       - uses: actions/checkout@v2
       - uses: maxim-lobanov/setup-xcode@v1
@@ -39,4 +41,18 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           SONAR_TOKEN: '${{ secrets.SONAR_TOKEN }}'
         run: >
-           sonar-scanner-5.0.1.3006-macosx/bin/sonar-scanner
+          sonar-scanner-5.0.1.3006-macosx/bin/sonar-scanner
+          -Dsonar.projectName=FlickrFinder
+          -Dsonar.organization=jeroenbakker-wbd
+          -Dsonar.projectKey=JeroenBakker-wbd_FlickrFinder
+          -Dsonar.sources=.
+          -Dsonar.exclusions=DataTests
+          -Dsonar.swift.project=FlickrFinder.xcodeproj
+          -Dsonar.swift.scheme=FlickrFinder
+          -Dsonar.host.url=https://sonarcloud.io
+          -Dsonar.login=$SONAR_TOKEN
+          -Dsonar.coverageReportPaths=coverage.xml
+          -Dsonar.swift.coverage.reportPath=coverage.xml
+          -Dsonar.c.file.suffixes=-
+          -Dsonar.cpp.file.suffixes=-
+          -Dsonar.objc.file.suffixes=-
