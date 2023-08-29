@@ -7,6 +7,7 @@
 
 import Domain
 import Factory
+import Foundation
 
 // MARK: - Singletons
 extension Container: AutoRegistering {

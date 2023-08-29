@@ -32,20 +32,6 @@
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "03090F0C2985417E00EEEE0E"
-            BuildableName = "Data.framework"
-            BlueprintName = "Data"
-            ReferencedContainer = "container:FlickrFinder.xcodeproj">
-         </BuildableReference>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "03090EFC2985417800EEEE0E"
-            BuildableName = "Domain.framework"
-            BlueprintName = "Domain"
-            ReferencedContainer = "container:FlickrFinder.xcodeproj">
-         </BuildableReference>
-         <BuildableReference
-            BuildableIdentifier = "primary"
             BlueprintIdentifier = "03090EEB2985416000EEEE0E"
             BuildableName = "Presentation.framework"
             BlueprintName = "Presentation"
@@ -58,17 +44,40 @@
             BlueprintName = "FlickrFinder"
             ReferencedContainer = "container:FlickrFinder.xcodeproj">
          </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "Domain"
+            BuildableName = "Domain"
+            BlueprintName = "Domain"
+            ReferencedContainer = "container:Domain">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "Data"
+            BuildableName = "Data"
+            BlueprintName = "Data"
+            ReferencedContainer = "container:Data">
+         </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "03090F132985417E00EEEE0E"
-               BuildableName = "DataTests.xctest"
+               BlueprintIdentifier = "DataTests"
+               BuildableName = "DataTests"
                BlueprintName = "DataTests"
-               ReferencedContainer = "container:FlickrFinder.xcodeproj">
+               ReferencedContainer = "container:Data">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DomainTests"
+               BuildableName = "DomainTests"
+               BlueprintName = "DomainTests"
+               ReferencedContainer = "container:Domain">
             </BuildableReference>
          </TestableReference>
       </Testables>

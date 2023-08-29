@@ -7,6 +7,7 @@
 
 import Domain
 import Factory
+import Foundation
 
 struct APIService: APIWorker {
     
@@ -42,5 +43,9 @@ struct APIService: APIWorker {
         default:
             throw NetworkError.statusCode(httpUrlResponse.statusCode)
         }
+    }
+
+    func anEmptyTestWhichShouldBeReportedAsACodeSmell() {
+        
     }
 }
