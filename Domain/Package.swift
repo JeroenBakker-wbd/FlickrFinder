@@ -26,7 +26,7 @@ let package = Package(
         .target(
             name: "Domain",
             dependencies: [
-                .product(name: "Factory", package: "Factory")
+                .product(name: "Factory", package: "Factory"),
             ]),
         .testTarget(
             name: "DomainTests",
