@@ -47,6 +47,7 @@ jobs:
           -Dsonar.organization=jeroenbakker-wbd
           -Dsonar.projectKey=JeroenBakker-wbd_FlickrFinder
           -Dsonar.sources=Data/,Domain/,Presentation/,FlickrFinder/
+          -Dsoner.exclusions=Data/Tests/,Domain/Tests/
           -Dsonar.tests=Data/Tests/,Domain/Tests/
           -Dsonar.swift.project=FlickrFinder.xcodeproj
           -Dsonar.swift.scheme=FlickrFinder
