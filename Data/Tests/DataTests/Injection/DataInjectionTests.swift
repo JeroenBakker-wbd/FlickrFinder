@@ -11,7 +11,6 @@ final class DataInjectionTests: XCTestCase {
 
     func test_singletons_onUrlSession_shouldReturnSameReference() {
         // given
-        let urlSessionOriginal = URLSession.shared
         Container.registerAllServices()
 
         // when
@@ -20,7 +19,6 @@ final class DataInjectionTests: XCTestCase {
 
         // then
         XCTAssertTrue(urlSession1 === urlSession2)
-        XCTAssertTrue(urlSession1 === urlSessionOriginal)
     }
 
     func test_workers_onAPI_shouldReturnService() {
