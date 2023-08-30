@@ -14,6 +14,8 @@ enum FlickrSearchPhotoError: Error, Equatable {
     case parameterlessSearchesDisabled
     case noPermission
     case userDeleted
+    case notImplemented
+    case anotherNotImplementedCase
     
     init(rawValue: Int) {
         switch rawValue {
@@ -27,6 +29,10 @@ enum FlickrSearchPhotoError: Error, Equatable {
             self = .noPermission
         case 5:
             self = .userDeleted
+        case 6:
+            self = .notImplemented
+        case 7:
+            self = .anotherNotImplementedCase
         default:
             self = .api(FlickrAPIError(rawValue: rawValue) ?? .unknown)
         }
