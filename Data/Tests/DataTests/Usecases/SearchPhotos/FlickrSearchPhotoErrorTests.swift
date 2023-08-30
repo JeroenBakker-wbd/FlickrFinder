@@ -25,13 +25,18 @@ final class FlickrSearchPhotoErrorTests: XCTestCase {
 
     func test_Init_onSupportedInputs_shouldReturnEnum() throws {
         // given
-        let inputs = [1, 2, 3, 4, 5]
+        let inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         let expectedResults: [FlickrSearchPhotoError] = [
             .tooManyTags,
             .unknownUser,
             .parameterlessSearchesDisabled,
             .noPermission,
-            .userDeleted
+            .userDeleted,
+            .aNewCaseWhichWillBeTested1,
+            .aNewCaseWhichWillBeTested2,
+            .aNewCaseWhichWillBeTested3,
+            .aNewCaseWhichWillBeTested4,
+            .aNewCaseWhichWillBeTested5
         ]
 
         for (index, input) in inputs.enumerated() {
