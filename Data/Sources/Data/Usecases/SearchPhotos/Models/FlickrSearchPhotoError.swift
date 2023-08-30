@@ -29,6 +29,10 @@ enum FlickrSearchPhotoError: Error, Equatable {
             self = .noPermission
         case 5:
             self = .userDeleted
+        case 6:
+            self = .notImplemented
+        case 7:
+            self = .anotherNotImplementedCase
         default:
             self = .api(FlickrAPIError(rawValue: rawValue) ?? .unknown)
         }
