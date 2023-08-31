@@ -59,13 +59,13 @@ jobs:
           -Dsonar.sources=.
           -Dsonar.tests=.
           -Dsonar.test.inclusions=**/Tests/**/*
-          -Dsoner.exclusions=**/Tests/**/*,**/Package.swift,**/*.xml
+          -Dsoner.exclusions=**/Tests/**/*,**/Package.swift,**/*.xml,**/*.html
           -Dsonar.swift.project=FlickrFinder.xcodeproj
           -Dsonar.swift.scheme=FlickrFinder
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.token=$SONAR_TOKEN
           -Dsonar.coverageReportPaths=coverage.xml
-          -Dsonar.coverage.exclusions=**/Tests/**/*,**/Package.swift
+          -Dsonar.coverage.exclusions=**/Tests/**/*,**/Package.swift,**/*.xml,**/*.html
           -Dsonar.c.file.suffixes=-
           -Dsonar.cpp.file.suffixes=-
           -Dsonar.objc.file.suffixes=-
