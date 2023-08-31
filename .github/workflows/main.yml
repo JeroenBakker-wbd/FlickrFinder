@@ -38,7 +38,6 @@ jobs:
           bash xccov-to-sonarqube-generic.sh Build/Logs/Test/*.xcresult/ >
           coverage.xml
       - name: Danger
-        allow_failure: false
         run: |
           # brew install danger/tap/danger-swift
           # swift build
