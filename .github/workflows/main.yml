@@ -43,7 +43,7 @@ jobs:
           # swift build
           # DEBUG="*" swift run danger-swift ci
           bundle install
-          bundle exec danger
+          bundle exec danger --fail-on-errors=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
