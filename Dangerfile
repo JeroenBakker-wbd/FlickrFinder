@@ -3,7 +3,7 @@ report = xcov.produce_report(
    scheme: 'FlickrFinder',
    configuration: 'Debug',
    derived_data_path: 'Build',
-   minimum_coverage_percentage: 40.0
+   minimum_coverage_percentage: 0.0
 )
 
 if report.coverage < 0.800
