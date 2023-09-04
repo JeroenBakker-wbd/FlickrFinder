@@ -14,6 +14,7 @@ enum FlickrSearchPhotoError: Error, Equatable {
     case parameterlessSearchesDisabled
     case noPermission
     case userDeleted
+    case notImplemented
     
     init(rawValue: Int) {
         switch rawValue {

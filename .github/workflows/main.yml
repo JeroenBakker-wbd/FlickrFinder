@@ -1,4 +1,4 @@
-name: Sonar
+name: Main
 env:
   DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
 on:
@@ -37,6 +37,16 @@ jobs:
 
           bash xccov-to-sonarqube-generic.sh Build/Logs/Test/*.xcresult/ >
           coverage.xml
+      - name: Danger
+        run: |
+          # brew install danger/tap/danger-swift
+          # swift build
+          # DEBUG="*" swift run danger-swift ci
+          bundle install
+          bundle exec danger --fail-on-errors=false --verbose
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
       - name: Sonar
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
@@ -49,13 +59,13 @@ jobs:
           -Dsonar.sources=.
           -Dsonar.tests=.
           -Dsonar.test.inclusions=**/Tests/**/*
-          -Dsoner.exclusions=**/Tests/**/*,**/Package.swift,**/*.xml
+          -Dsoner.exclusions=**/Tests/**/*,**/Package.swift,**/*.xml,**/*.html
           -Dsonar.swift.project=FlickrFinder.xcodeproj
           -Dsonar.swift.scheme=FlickrFinder
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.token=$SONAR_TOKEN
           -Dsonar.coverageReportPaths=coverage.xml
-          -Dsonar.coverage.exclusions=**/Tests/**/*,**/Package.swift
+          -Dsonar.coverage.exclusions=**/Tests/**/*,**/Package.swift,**/*.xml,**/*.html
           -Dsonar.c.file.suffixes=-
           -Dsonar.cpp.file.suffixes=-
           -Dsonar.objc.file.suffixes=-
