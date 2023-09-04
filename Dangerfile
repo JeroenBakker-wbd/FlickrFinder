@@ -7,7 +7,7 @@ report = xcov.produce_report(
 )
 
 if report.coverage < 0.800
-   warn("Coverage is less than 80%.")
+   fail("Coverage is less than 80%.")
 end
 
 # Post markdown report
